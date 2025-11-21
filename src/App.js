@@ -1,16 +1,18 @@
-// import Signup from "./pages/Login/SignUp";
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Login/Home";
 import Login from "./pages/Login/Login";
-import Signup from "./pages/Login/SignUp";
+import SignUp from "./pages/Login/SignUp";
+import { AuthProvider } from "./Context/AuthContext";
 
 function App() {
   return (
-    <>
-      <Signup/>
-
-      {/* <Login /> */}
-    </>
+    <AuthProvider>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} /> 
+      </Routes>
+    </AuthProvider>
   );
 }
 
